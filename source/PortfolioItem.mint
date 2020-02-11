@@ -27,7 +27,6 @@ component PortfolioItem {
     style github {
         color: var(--main-color);
         text-decoration: none;
-        margin-right: 20px;
         text-transform: lowercase;
     }
 
