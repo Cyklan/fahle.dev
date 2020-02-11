@@ -4,7 +4,7 @@ component Title {
     style top {
         position: relative;
         color: transparent;
-        font-family: 'Cambay', sans-serif;
+        font-family: 'Segoe UI', sans-serif;
         font-size: 10vw;
         font-weight: 700;
         letter-spacing: -0.02em;

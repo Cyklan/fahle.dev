@@ -1,8 +1,13 @@
 <!-- Mint doesn't support external css files yet, so this is where I define global styles and animations -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+<link href="https://fonts.googleapis.com/css?family=Cambay&display=swap" rel="stylesheet">
 <style>
     :root {
         --main-color: #ffff64;
+    }
+
+    html {
+        scroll-behavior: smooth;
     }
 
     body {
@@ -12,7 +17,18 @@
             sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        overflow: hidden;
+        /* overflow: hidden; */
+        overflow-x: hidden;
+        background: linear-gradient(130deg,#0f2027,#203a43,#2c5364);
+        background-repeat: no-repeat;
+    }
+
+    .left {
+        text-align: left;
+    }
+
+    .right {
+        text-align: right;
     }
 
     @keyframes deconstructed1 {
