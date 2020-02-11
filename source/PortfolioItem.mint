@@ -4,9 +4,11 @@ component PortfolioItem {
     property description: String = ""
     property direction: String = "left"
     property github: String = ""
+    property url: String = ""
 
     style item {
         color: var(--main-color);
+        margin-bottom: 50px;
     }
 
     style title {
@@ -25,6 +27,8 @@ component PortfolioItem {
     style github {
         color: var(--main-color);
         text-decoration: none;
+        margin-right: 20px;
+        text-transform: lowercase;
     }
 
     fun render(): Html {
@@ -34,8 +38,14 @@ component PortfolioItem {
             </h1>
             <p::description><{description}></p>
 
+            if (url != "") {
+                <a::github href={url} target="_blank" rel="noopener noreferrer">"Try it out"</a>
+            }
+
             if (github != "") { 
-                <a::github href={github}>"View on GitHub"</a>
+                <a::github href={github} target="_blank" rel="noopener noreferrer">"View on GitHub"</a>
+            } else {
+                <a::github>"Closed source :("</a>
             }
         </div>
     }
