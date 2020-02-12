@@ -1,5 +1,6 @@
 component Main {
   style app {
+    width: 100vw;
     max-width: 100vw;
     text-align: center;
     margin-bottom: 50px;
