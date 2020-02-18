@@ -44,6 +44,16 @@ component Portfolio {
                  with the 'League of Legends' API and displays stats about every played character.
                  All stored information is kept in a MySQL database."
                  />
+                 <PortfolioItem
+                 title="Share [work in progress]"
+                 direction="left"
+                 github="https://github.com/Lokk-In/share"
+                 description="Share is a single use, time limited file sharing service. The API is written in C#,
+                 while the client-side app is written with react. Its main focus is anonymity. No info about the
+                 uploader will be kept, except for the file name. Once a file has been downloaded, it will be deleted shortly after.
+                 Files are also only stored for a set amount of time. If the file wasn't downloaded before the time has run out,
+                 it will also be deleted." 
+                 />
             </div>
         </div>
     }
