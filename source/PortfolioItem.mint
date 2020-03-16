@@ -9,6 +9,7 @@ component PortfolioItem {
     style item {
         color: var(--main-color);
         margin-bottom: 50px;
+        text-align: #{direction};
     }
 
     style title {
@@ -28,6 +29,11 @@ component PortfolioItem {
         color: var(--main-color);
         text-decoration: none;
         text-transform: lowercase;
+        if (direction == "right") {
+            margin-left: 20px;
+        } else {
+            margin-right: 20px;
+        }
     }
 
     fun render(): Html {
