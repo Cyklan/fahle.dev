@@ -2,6 +2,7 @@ component Header {
 
     style portfolioDiv {
         margin-top: 40px;
+        line-height: 45px;
     }
 
     style portfolioLink {
@@ -9,6 +10,13 @@ component Header {
         font-size: 36px;
         font-weight: 600;
         cursor: pointer;
+        text-transform: lowercase;
+    }
+
+    style githubLink {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 30px;
     }
 
     fun scrollToPortfolio(): Void {
@@ -37,7 +45,8 @@ component Header {
                 icon="fab fa-instagram" />
             </div>
             <div::portfolioDiv>
-                <span::portfolioLink onClick={scrollToPortfolio}>"go to portfolio"</span>
+                <span::portfolioLink onClick={scrollToPortfolio}>"go to portfolio"</span><br />
+                <a::portfolioLink::githubLink href="https://github.com/cyklan/fahle.dev" target="_blank">"View me on Github"</a>
             </div>
         </div>
     }
