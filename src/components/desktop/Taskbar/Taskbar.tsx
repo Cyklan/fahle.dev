@@ -6,7 +6,14 @@ export default function Taskbar() {
   const [timeString, setTimeString] = useState("0:00");
 
   useEffect(() => {
-    setInterval(() => {setTimeString(new Date().getHours() + ":" + new Date().getMinutes())}, 1000);
+    setInterval(() => {
+      const hour = new Date().getHours();
+      const minute = new Date()
+        .getMinutes()
+        .toLocaleString("en-US", { minimumIntegerDigits: 2 });
+
+      setTimeString(`${hour}:${minute}`);
+    }, 1000);
   });
 
   return (
