@@ -6,3 +6,7 @@
   overflow: hidden;
   position: relative;
 }
+
+.desktop h4 {
+  margin: 20px 0;
+}

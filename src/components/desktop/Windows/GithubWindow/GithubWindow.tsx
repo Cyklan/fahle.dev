@@ -4,15 +4,9 @@ import { getGithubRepos } from "../../../../data/fetchGithub";
 import { useEffect } from "react";
 import { RepoOverview } from "../../../../model/GithubAPI";
 import GithubRepo from "../../GithubRepo/GithubRepo";
+import DefinedWindowProps from "../DefinedWindowProps";
 
-interface GithubWindowProps {
-  onClose: Function;
-  id: string;
-  title: string;
-  updateZIndex: Function;
-}
-
-export default function GithubWindow({ onClose, id, title, updateZIndex }: GithubWindowProps) {
+export default function GithubWindow({ onClose,  title, updateZIndex }: DefinedWindowProps) {
 
   const [repos, setRepos] = React.useState<RepoOverview[]>([]);
 
