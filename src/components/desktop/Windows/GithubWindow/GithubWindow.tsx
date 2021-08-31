@@ -24,7 +24,12 @@ export default function GithubWindow({ onClose,  title, updateZIndex }: DefinedW
     );
 
   return (
-    <Window updateZIndex={updateZIndex} title={title} onClose={onClose}>
+    <Window 
+      updateZIndex={updateZIndex} 
+      title={title} 
+      onClose={onClose}
+      size={{x: 720, y: 500}}
+      initialPosition={{x: 100, y: 150}} >
       <h3><a href="https://github.com/Cyklan" target="_blank" rel="noreferrer">Cyklan</a></h3>
       {repoElements}
     </Window>

@@ -4,18 +4,20 @@ import Background from "../components/desktop/Background/Background";
 import Taskbar from "../components/desktop/Taskbar/Taskbar";
 import DesktopIcon from "../components/desktop/DesktopIcon/DesktopIcon";
 import GithubWindow from "../components/desktop/Windows/GithubWindow/GithubWindow";
+import AboutMeWindow from "../components/desktop/Windows/AboutMeWindow/AboutMeWindow";
+import AudioPlayerWindow from "../components/desktop/Windows/AudioPlayer/AudioPlayerWindow";
 import { v4 } from "uuid";
 import "98.css";
 
 import myDocumentsImage from "../img/icons/documents.png";
 import ieImage from "../img/icons/ie.png";
 import info from "../img/icons/info.png";
-import AboutMeWindow from "../components/desktop/Windows/AboutMeWindow/AboutMeWindow";
+import music from "../img/icons/media.png";
 
 interface WindowStore {
   id: string;
   title: string;
-  type: "Github" | "Documents" | "About";
+  type: "Github" | "Documents" | "About" | "Music";
   zIndex: number;
 }
 
@@ -64,6 +66,16 @@ export default function Desktop() {
             onClose={() => closeWindow(x.id)}
           />
         );
+      case "Music":
+        return (
+          <AudioPlayerWindow
+            updateZIndex={() => updateZIndex(x.id)}
+            key={x.id}
+            id={x.id}
+            title={x.title}
+            onClose={() => closeWindow(x.id)}
+          />
+        )
       default:
         return <></>;
     }
@@ -75,11 +87,11 @@ export default function Desktop() {
       <Taskbar />
 
       <DesktopIcon
-        text="My Documents"
+        text="My Favourite Projects"
         image={myDocumentsImage}
         initialPosition={0}
         onDoubleClick={() => {
-          console.log("My Documents");
+          console.log("My Favourite Projects");
         }}
       />
       <DesktopIcon
@@ -112,6 +124,22 @@ export default function Desktop() {
               zIndex: windows.length + 1,
             },
           ]);
+        }}
+      />
+      <DesktopIcon 
+        text="Audio Player"
+        image={music}
+        initialPosition={3}
+        onDoubleClick={() => {
+          setWindows([
+            ...windows,
+            {
+              id: v4(),
+              title: "Audio Player",
+              type: "Music",
+              zIndex: windows.length + 1,
+            },
+          ])
         }}
       />
 

@@ -8,9 +8,11 @@ export interface WindowProps {
   children: React.ReactNode;
   onClose: Function;
   updateZIndex: Function;
+  size: Point;
+  initialPosition: Point;
 }
 
-export default function Window({ title, children, onClose, updateZIndex }: WindowProps) {
+export default function Window({ title, children, onClose, updateZIndex, size, initialPosition }: WindowProps) {
 
   const mousePosition = useMousePosition();
 
@@ -45,6 +47,12 @@ export default function Window({ title, children, onClose, updateZIndex }: Windo
 
   return (
     <div 
+      style={{
+        width: size.x,
+        height: size.y,
+        left: initialPosition.x,
+        top: initialPosition.y
+      }}
       className="window no-select" 
       ref={windowRef}
       onMouseDown={() => updateZIndex()}

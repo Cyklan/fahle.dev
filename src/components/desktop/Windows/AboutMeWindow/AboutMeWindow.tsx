@@ -3,7 +3,12 @@ import DefinedWindowProps from "../DefinedWindowProps";
 
 export default function AboutMeWindow({onClose, title, updateZIndex}: DefinedWindowProps) {
   return (
-    <Window title={title} onClose={onClose} updateZIndex={updateZIndex}>
+    <Window 
+      title={title} 
+      onClose={onClose} 
+      updateZIndex={updateZIndex}
+      size={{x: 720, y: 500}}
+      initialPosition={{x: 100, y: 150}}>
       <h3>Hi there 👋</h3>
       <p>I'm Nils, a software engineer from Germany. In my free time I write silly web apps, play board games and record audio books.</p>
 
