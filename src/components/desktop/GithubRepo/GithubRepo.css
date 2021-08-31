@@ -1,0 +1,22 @@
+.repo:first-child {
+  margin-top: 20px;
+}
+
+.repo {
+  margin-bottom: 15px;
+}
+
+.repo-name {
+  margin: 0;
+}
+
+.repo-details {
+  font-weight: 600;
+  font-size: 1.4em;
+  margin-bottom: 0;
+}
+
+.repo-lang {
+  font-size: 0.8em;
+  margin-left: 20px;
+}
