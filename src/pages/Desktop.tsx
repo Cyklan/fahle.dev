@@ -1,17 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Desktop.css";
 import Background from "../components/desktop/Background/Background";
 import Taskbar from "../components/desktop/Taskbar/Taskbar";
 import DesktopIcon from "../components/desktop/DesktopIcon/DesktopIcon";
+import GithubWindow from "../components/desktop/Windows/GithubWindow/GithubWindow";
+import { v4 } from "uuid";
 import "98.css";
 
 import myDocumentsImage from "../img/icons/documents.png";
 import ieImage from "../img/icons/ie.png";
 import info from "../img/icons/info.png";
 
+interface WindowStore {
+  id: string;
+  title: string;
+  type: "Github" | "Documents" | "About";
+  zIndex: number;
+}
+
 export default function Desktop() {
+
+  const [windows, setWindows] = useState<WindowStore[]>([]);
+
+  function closeWindow(id: string) {
+    setWindows(windows.filter(window => window.id !== id));
+  }
+
+  
+  const updateZIndex = (id: string) => {
+    const newWindows = [...windows];
+    const sortedWindows = newWindows.filter(x => x.id !== id).sort((a, b) => b.zIndex - a.zIndex);
+    const max = Math.max.apply(Math, sortedWindows.map(x => x.zIndex));
+
+    sortedWindows.push(...newWindows.filter(x => x.id === id));
+    sortedWindows[sortedWindows.length - 1].zIndex = max + 1;
+    
+    setWindows(sortedWindows);
+  }
+
+  const windowElems = windows.map(x => {
+    switch (x.type) {
+      case "Github":
+        return <GithubWindow updateZIndex={() => updateZIndex(x.id)} key={x.id} id={x.id} title={x.title} onClose={() => closeWindow(x.id)} />;
+      default:
+        return <></>;
+    }
+  });
+
   return (
-    <div className="desktop">
+    <div className="desktop" >
       <Background />
       <Taskbar />
 
@@ -23,20 +60,22 @@ export default function Desktop() {
           console.log("My Documents");
         }}
       />
-      <DesktopIcon 
+      <DesktopIcon
         text="About Me"
         image={info}
         initialPosition={1}
         onDoubleClick={() => console.log("About me")}
       />
       <DesktopIcon
-        text="My Github"
+        text="Github"
         image={ieImage}
         initialPosition={2}
         onDoubleClick={() => {
-          console.log("Internet Explorer");
+          setWindows([...windows, { id: v4(), title: "Github", type: "Github", zIndex: windows.length + 1 }]);
         }}
       />
+
+      {windowElems}
     </div>
   );
 }
