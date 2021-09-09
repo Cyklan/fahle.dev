@@ -10,9 +10,10 @@ export interface WindowProps {
   updateZIndex: Function;
   size: Point;
   initialPosition: Point;
+  className?: string;
 }
 
-export default function Window({ title, children, onClose, updateZIndex, size, initialPosition }: WindowProps) {
+export default function Window({ title, children, onClose, updateZIndex, size, initialPosition, className }: WindowProps) {
 
   const mousePosition = useMousePosition();
 
@@ -53,7 +54,7 @@ export default function Window({ title, children, onClose, updateZIndex, size, i
         left: initialPosition.x,
         top: initialPosition.y
       }}
-      className="window no-select" 
+      className={`window no-select${className && " " + className}`} 
       ref={windowRef}
       onMouseDown={() => updateZIndex()}
       onMouseUp={() => setIsDragging(false)}>
