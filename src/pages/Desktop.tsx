@@ -13,6 +13,7 @@ import myDocumentsImage from "../img/icons/documents.png";
 import ieImage from "../img/icons/ie.png";
 import info from "../img/icons/info.png";
 import music from "../img/icons/media.png";
+import { AudioPlayerProvider } from "react-use-audio-player";
 
 interface WindowStore {
   id: string;
@@ -68,14 +69,16 @@ export default function Desktop() {
         );
       case "Music":
         return (
-          <AudioPlayerWindow
-            updateZIndex={() => updateZIndex(x.id)}
-            key={x.id}
-            id={x.id}
-            title={x.title}
-            onClose={() => closeWindow(x.id)}
-          />
-        )
+          <AudioPlayerProvider>
+            <AudioPlayerWindow
+              updateZIndex={() => updateZIndex(x.id)}
+              key={x.id}
+              id={x.id}
+              title={x.title}
+              onClose={() => closeWindow(x.id)}
+            />
+          </AudioPlayerProvider>
+        );
       default:
         return <></>;
     }
@@ -126,7 +129,7 @@ export default function Desktop() {
           ]);
         }}
       />
-      <DesktopIcon 
+      <DesktopIcon
         text="Audio Player"
         image={music}
         initialPosition={3}
@@ -139,7 +142,7 @@ export default function Desktop() {
               type: "Music",
               zIndex: windows.length + 1,
             },
-          ])
+          ]);
         }}
       />
 
