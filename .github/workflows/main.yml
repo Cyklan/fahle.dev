@@ -31,3 +31,5 @@ jobs:
       # Runs a single command using the runners shell
       - name: 🔨 Build and 🚀 Deploy
         uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
+        env:
+          CI: false
