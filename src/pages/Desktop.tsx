@@ -69,10 +69,9 @@ export default function Desktop() {
         );
       case "Music":
         return (
-          <AudioPlayerProvider>
+          <AudioPlayerProvider key={x.id}>
             <AudioPlayerWindow
               updateZIndex={() => updateZIndex(x.id)}
-              key={x.id}
               id={x.id}
               title={x.title}
               onClose={() => closeWindow(x.id)}

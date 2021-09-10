@@ -5,7 +5,8 @@ import AudioRecordings, { AudioRecording } from "../../../../model/AudioRecordin
 import AudioPlayerItem from "../../AudioPlayerItem/AudioPlayerItem";
 import "./AudioPlayerWindow.css";
 import { useAudioPlayer, useAudioPosition } from "react-use-audio-player";
-
+import PlayButton from "../../AudioPlayerControls/PlayButton/PlayButton";
+import Seeker from "../../AudioPlayerControls/Seeker/Seeker";
 interface AudioPlayerInformation {
   src: string;
   format: "ogg";
@@ -70,6 +71,12 @@ export default function AudioPlayerWindow({ title, updateZIndex, onClose }: Defi
         {audioPlayerItems}
       </ul>
       <div className="audio-player-controls">
+        <PlayButton
+          playing={audioPlayer.playing}
+          onClick={() => {
+            audioPlayer.togglePlayPause();
+          }} />
+        <Seeker onSeek={seek} />
       </div>
     </Window>
   );
