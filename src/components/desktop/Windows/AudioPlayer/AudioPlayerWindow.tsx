@@ -70,6 +70,7 @@ export default function AudioPlayerWindow({ title, updateZIndex, onClose }: Defi
       <ul className="audio-player-item-container">
         {audioPlayerItems}
       </ul>
+      <p><b>{currentRecording?.name}</b></p>
       <div className="audio-player-controls">
         <PlayButton
           playing={audioPlayer.playing}

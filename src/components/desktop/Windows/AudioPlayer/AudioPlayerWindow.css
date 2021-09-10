@@ -1,6 +1,15 @@
 .audio-player > .window-body {
   padding: 0;
   height: 100%;
+  position: relative;
+}
+
+.audio-player p {
+  margin: 0;
+  margin-left: 5px;
+  height: calc(20% - 30px);
+  display: flex;
+  align-items: center;
 }
 
 .audio-player-item-container {
@@ -11,8 +20,9 @@
 }
 
 .audio-player-controls {
-  height: 19%;
   display: flex;
-  justify-content: space-evenly;
-  align-items: flex-end;
+  justify-content: space-around;
+  width: 100%;
+  position: absolute;
+  bottom: 5px;
 }
