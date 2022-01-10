@@ -13,6 +13,7 @@ import myDocumentsImage from "../img/icons/documents.png";
 import ieImage from "../img/icons/ie.png";
 import info from "../img/icons/info.png";
 import music from "../img/icons/media.png";
+import { AudioPlayerProvider } from "react-use-audio-player";
 
 interface WindowStore {
   id: string;
@@ -68,14 +69,15 @@ export default function Desktop() {
         );
       case "Music":
         return (
-          <AudioPlayerWindow
-            updateZIndex={() => updateZIndex(x.id)}
-            key={x.id}
-            id={x.id}
-            title={x.title}
-            onClose={() => closeWindow(x.id)}
-          />
-        )
+          <AudioPlayerProvider key={x.id}>
+            <AudioPlayerWindow
+              updateZIndex={() => updateZIndex(x.id)}
+              id={x.id}
+              title={x.title}
+              onClose={() => closeWindow(x.id)}
+            />
+          </AudioPlayerProvider>
+        );
       default:
         return <></>;
     }
@@ -87,17 +89,9 @@ export default function Desktop() {
       <Taskbar />
 
       <DesktopIcon
-        text="My Favourite Projects"
-        image={myDocumentsImage}
-        initialPosition={0}
-        onDoubleClick={() => {
-          console.log("My Favourite Projects");
-        }}
-      />
-      <DesktopIcon
         text="About Me"
         image={info}
-        initialPosition={1}
+        initialPosition={0}
         onDoubleClick={() =>
           setWindows([
             ...windows,
@@ -111,9 +105,9 @@ export default function Desktop() {
         }
       />
       <DesktopIcon
-        text="Github"
+        text="My Code"
         image={ieImage}
-        initialPosition={2}
+        initialPosition={1}
         onDoubleClick={() => {
           setWindows([
             ...windows,
@@ -126,10 +120,10 @@ export default function Desktop() {
           ]);
         }}
       />
-      <DesktopIcon 
+      <DesktopIcon
         text="Audio Player"
         image={music}
-        initialPosition={3}
+        initialPosition={2}
         onDoubleClick={() => {
           setWindows([
             ...windows,
@@ -139,7 +133,7 @@ export default function Desktop() {
               type: "Music",
               zIndex: windows.length + 1,
             },
-          ])
+          ]);
         }}
       />
 
