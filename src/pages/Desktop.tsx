@@ -7,9 +7,7 @@ import GithubWindow from "../components/desktop/Windows/GithubWindow/GithubWindo
 import AboutMeWindow from "../components/desktop/Windows/AboutMeWindow/AboutMeWindow";
 import AudioPlayerWindow from "../components/desktop/Windows/AudioPlayer/AudioPlayerWindow";
 import { v4 } from "uuid";
-import "98.css";
 
-import myDocumentsImage from "../img/icons/documents.png";
 import ieImage from "../img/icons/ie.png";
 import info from "../img/icons/info.png";
 import music from "../img/icons/media.png";

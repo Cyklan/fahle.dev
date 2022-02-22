@@ -1,0 +1,15 @@
+.app-icon {
+  width: 27%;
+  aspect-ratio: 1;
+  background-color: silver;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.app-icon img {
+  width: 50%;
+}

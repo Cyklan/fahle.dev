@@ -1,8 +1,8 @@
-import React from "react";
-import { isMobile } from "react-device-detect";
-import Desktop from "./pages/Desktop";
 import Mobile from "./pages/Mobile";
 import "./App.css";
+import "98.css";
+import Desktop from "./pages/Desktop";
+import { isMobile } from "react-device-detect";
 
 function App() {
 
